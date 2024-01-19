@@ -1,6 +1,6 @@
-import { GoChevronDown, GoChevronLeft } from 'react-icons/go';
-import React, { useState, useEffect, useRef } from 'react';
-import Panel from './Panel';
+import { GoChevronDown, GoChevronRight } from "react-icons/go";
+import React, { useState, useEffect, useRef } from "react";
+import Panel from "./Panel";
 
 function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +17,10 @@ function Dropdown({ options, value, onChange }) {
       }
     };
 
-    document.addEventListener('click', handler, true);
+    document.addEventListener("click", handler, true);
 
     return () => {
-      document.removeEventListener('click', handler);
+      document.removeEventListener("click", handler);
     };
   });
 
@@ -58,8 +58,8 @@ function Dropdown({ options, value, onChange }) {
         onClick={handleClick}
         onMouseEnter={() => handleMouseEnter(isOpen)}
       >
-        {value?.label || 'Select...'}
-        {isOpen ? <GoChevronDown /> : <GoChevronLeft />}
+        {value?.label || "Select..."}
+        {isOpen ? <GoChevronDown /> : <GoChevronRight />}
       </Panel>
       {isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
     </div>
